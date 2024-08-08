@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: order
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/ricardofood-orders?createDatabaseIfNotExist=true}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:senha123}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 0
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8081/eureka}
